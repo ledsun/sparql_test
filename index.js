@@ -1,7 +1,12 @@
 import request from 'superagent'
 
+const endpoint = 'http://rdf.pubannotation.org/sparql',
+  url = 'http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseases/74'
+
+let query = `select ?label where { <${url}>  rdfs:label ?label }`
+
 request
-  .get('http://rdf.pubannotation.org/sparql?query=select%20%3flabel%20where%20%7b%20%3chttp%3a%2f%2fwww4%2ewiwiss%2efu%2dberlin%2ede%2fdiseasome%2fresource%2fdiseases%2f74%3e%20rdfs%3alabel%20%3flabel%20%7d')
+  .get(`${endpoint}?query=${encodeURI(query)}`)
   .set('Accept', 'application/json')
   .end((err, res) => {
     if (err) {
