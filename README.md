@@ -8,9 +8,21 @@ http://rdf.pubannotation.org/sparql
 このendpointはVirtuosoを使っている
 
 ## テストデータ
-- URL: `http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseases/74`
-- SPARQL: `select ?label where { ?r rdfs:label ?label }` ?rにURLを入れる
-- SPARQL例: `select ?label where { <http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseasome/genes> rdfs:label ?label }`
+### URL
+```
+http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseases/74
+```
+
+### SPARQL構文
+```
+select ?label where { ?r rdfs:label ?label }
+```
+?rにURLを入れる
+
+### SPARQL例
+```spaql
+select ?label where { <http://www4.wiwiss.fu-berlin.de/diseasome/resource/diseasome/genes> rdfs:label ?label }
+```
 
 # 動かす
 ## Node.js
